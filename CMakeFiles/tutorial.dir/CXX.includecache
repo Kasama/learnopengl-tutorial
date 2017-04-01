@@ -43,8 +43,6 @@ glm/gtx/quaternion.hpp
 /home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/src/main.cpp
 utils.hpp
 -
-stdio.h
--
 iostream
 -
 gl_33.hpp
