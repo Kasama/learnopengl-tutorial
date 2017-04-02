@@ -72,13 +72,7 @@ int main() {
         glm::vec3 Direction = glm::vec3{0.f};
         float Speed = 100.f;
 
-        Polygon(std::array<Vertex, 3> vertexes){
-            Polygon(vertexes, 100.f);
-        }
-        Polygon(Vertex vertexes[], float speed){
-            Polygon(vertexes, speed, glm::vec3{0.f});
-        }
-        Polygon(Vertex vertexes[], float speed, glm::vec3 direction){
+        Polygon(Vertex *vertexes, float speed, glm::vec3 direction){
             this->Direction = direction;
             this->Speed = speed;
 
@@ -113,15 +107,23 @@ int main() {
             }
         }
 
-        ~Polygon(){ gl::DeleteVertexArrays(1, &this->VAO); }
+        Polygon(Vertex *vertexes, float speed)
+                : Polygon{vertexes, speed, glm::vec3{0.f}}{}
+
+        Polygon(Vertex *vertexes)
+                : Polygon{vertexes, 100.f}{}
+
+        ~Polygon(){
+            gl::DeleteVertexArrays(1, &this->VAO);
+        }
     };
 
     Vertex v1 = {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}};
     Vertex v2 = {{+0.0f, +0.5f, +0.0f}, {+0.5f, +1.0f, +0.0f}};
     Vertex v3 = {{+0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}};
     Vertex vs[] = {v1,v2,v3};
-    std::array<Vertex, 3> arr = {v1,v2,v3};
-    Polygon p1 = Polygon(arr);
+//    Polygon p1{vs};
+    Polygon p1{vs, 100.f, glm::vec3{0.f}};
 
 //    Vertex vertexes[] = {
 //            {{-0.5f, -0.5f}},
@@ -187,7 +189,7 @@ int main() {
         GLint MVP_ID = gl::GetUniformLocation(ShaderProgram, "MVP");
         Assert(MVP_ID >= 0);
 
-        glm::mat4 projection = glm::ortho(0.f, (float) screenResolution.x, 0.f, (float) screenResolution.y);
+        glm::mat4 projection = glm::ortho(0.f, (float) screenResolution.x, (float) screenResolution.y, 0.f);
         glm::mat4 view;
         glm::mat4 model;
 
@@ -204,6 +206,7 @@ int main() {
         if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_1) == GLFW_PRESS){
             double x, y;
             glfwGetCursorPos(window, &x, &y);
+            LogError("Cursor pressed at: {%lf, %lf}\n", x, y);
             translate = {(float) x, (float) y, 0.f};
         }else{
             translate = {500.f, 300.f, 0.f};
