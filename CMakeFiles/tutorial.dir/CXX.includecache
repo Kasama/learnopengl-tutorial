@@ -17,6 +17,8 @@ GLFW/glfw3.h
 -
 shader.hpp
 -
+polygon.hpp
+-
 
 /home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/src/shader.cpp
 shader.hpp
@@ -55,6 +57,8 @@ sstream
 -
 direct.h
 -
+
+include/polygon.hpp
 
 include/shader.hpp
 gl_33.hpp

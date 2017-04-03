@@ -156,6 +156,9 @@
 		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/include/file.hpp">
 			<Option target="tutorial"/>
 		</Unit>
+		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/include/polygon.hpp">
+			<Option target="tutorial"/>
+		</Unit>
 		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/include/shader.hpp">
 			<Option target="tutorial"/>
 		</Unit>

@@ -68,6 +68,8 @@ GLint ShaderProgram::reloadShaders() {
 }
 
 void ShaderProgram::deleteShaders() {
+    gl::DeleteProgram(this->id);
+    this->id = gl::CreateProgram();
     for (auto& shader : shaderIds){
         if (shader != INVALID){
             gl::DetachShader(this->id, shader);

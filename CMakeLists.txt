@@ -31,6 +31,7 @@ file(GLOB GLM_SRCS	third_party/glm/glm/*.hpp
 
 # Inlclude local libs
 file(GLOB INCS
+        include/polygon.hpp
         include/shader.hpp
         include/file.hpp
         include/defer.hpp

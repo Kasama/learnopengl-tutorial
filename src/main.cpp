@@ -3,6 +3,7 @@
 #include <gl_33.hpp>
 #include <GLFW/glfw3.h>
 #include <shader.hpp>
+#include <polygon.hpp>
 
 int main() {
     LogError("Started\n");
@@ -56,81 +57,24 @@ int main() {
 
     gl::ClearColor(0.2,0.7,1,1);
 
-    struct Vertex {
-        glm::vec3 PositionCoords;
-        glm::vec3 TextureCoords;
+    LogError("Got to vertex initialization\n");
 
-        enum class attribute_location : GLuint {
-            Position = 0,
-            Texture = 1
-        };
-    };
-
-    struct Polygon {
-        GLuint VAO;
-        glm::vec3 Direction = glm::vec3{0.f};
-        float Speed = 100.f;
-
-        Polygon(Vertex *vertexes, float speed, glm::vec3 direction){
-            this->Direction = direction;
-            this->Speed = speed;
-
-            int vertices = 3;
-
-            // Create Vertex Array
-            gl::GenVertexArrays(1, &this->VAO);
-            { // Vertex Array configuration
-                // Bind VAO
-                LogError("Binding VAO");
-                gl::BindVertexArray(this->VAO);
-
-                // Create Vertex Buffer
-                GLuint VBO;
-                gl::GenBuffers(1, &VBO);
-                defer { gl::DeleteBuffers(1, &VBO); };
-                gl::BindBuffer(gl::ARRAY_BUFFER, VBO);
-                gl::BufferData(gl::ARRAY_BUFFER, sizeof(Vertex) * vertices, vertexes, gl::STATIC_DRAW);
-
-                // Set Position Stride
-                auto PositionLocation = (GLuint) Vertex::attribute_location::Position;
-                gl::EnableVertexAttribArray(PositionLocation);
-                gl::VertexAttribPointer( PositionLocation, 2, gl::FLOAT, gl::FALSE_, sizeof(Vertex), (void*) offsetof(Vertex, PositionCoords) );
-
-                // Set Texture Stride
-                auto TextureLocation = (GLuint) Vertex::attribute_location::Texture;
-                gl::EnableVertexAttribArray(TextureLocation);
-                gl::VertexAttribPointer( TextureLocation, 2, gl::FLOAT, gl::FALSE_, sizeof(Vertex), (void*) offsetof(Vertex, TextureCoords) );
-
-                LogError("Unbinding VAO");
-                gl::BindVertexArray(0);
+    Polygon p1{
+            {
+                    {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}},
+                    {{+0.0f, +0.5f, +0.0f}, {+0.5f, +1.0f, +0.0f}},
+                    {{+0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}}
             }
-        }
-
-        Polygon(Vertex *vertexes, float speed)
-                : Polygon{vertexes, speed, glm::vec3{0.f}}{}
-
-        Polygon(Vertex *vertexes)
-                : Polygon{vertexes, 100.f}{}
-
-        ~Polygon(){
-            gl::DeleteVertexArrays(1, &this->VAO);
-        }
     };
 
-    Vertex v1 = {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}};
-    Vertex v2 = {{+0.0f, +0.5f, +0.0f}, {+0.5f, +1.0f, +0.0f}};
-    Vertex v3 = {{+0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}};
-    Vertex vs[] = {v1,v2,v3};
-//    Polygon p1{vs};
-    Polygon p1{vs, 100.f, glm::vec3{0.f}};
-
-//    Vertex vertexes[] = {
-//            {{-0.5f, -0.5f}},
-//            {{+0.0f, +0.5f}},
-//            {{+0.5f, -0.5f}}
-//    };
-
-//    LogError("Got to vertex initialization\n");
+    Polygon p2{
+            {
+                    {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}},
+                    {{-0.5f, +0.5f, +0.0f}, {+0.0f, +1.0f, +0.0f}},
+                    {{+0.5f, +0.5f, +0.0f}, {+1.0f, +1.0f, +0.0f}},
+                    {{+0.5f, -0.5f, +0.0f}, {+1.0f, +0.0f, +0.0f}}
+            }
+    };
 
     LogError("Got to shader loading\n");
 
@@ -157,44 +101,48 @@ int main() {
         if(glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS){
             shaderProgram.reloadShaders();
         }
-
-        gl::UseProgram(shaderProgram.id);
-        GLint MVP_ID = gl::GetUniformLocation(shaderProgram.id, "MVP");
-        Assert(MVP_ID >= 0);
-
-        glm::mat4 projection = glm::ortho(0.f, (float) screenResolution.x, (float) screenResolution.y, 0.f);
-        glm::mat4 view;
-        glm::mat4 model;
-
-        auto MakeModel = [](glm::vec3 scale, Rotation rotation, glm::vec3 translate) {
-            return glm::scale(
-                    glm::translate(glm::mat4{}, translate) * // translation
-                            glm::toMat4(glm::rotate(glm::quat{}, rotation.angle, rotation.rotAxis)), // rotation
-                    scale); // scale
-        };
-
-        glm::vec3 scale = {400.f, 400.f, 0.f};
-        Rotation rotation = Rotation{Pi/4};
-        glm::vec3 translate;
-
-        if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_1) == GLFW_PRESS){
-            double x, y;
-            glfwGetCursorPos(window, &x, &y);
-            LogError("Cursor pressed at: {%lf, %lf}\n", x, y);
-            translate = {(float) x, (float) y, 0.f};
-        }else{
-            translate = {500.f, 300.f, 0.f};
+        if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS){
+            glfwSetWindowShouldClose(window, 1);
         }
 
-        model = MakeModel(scale, rotation, translate);
+        auto DrawPolygon = [shaderProgram, screenResolution](
+                Polygon &p,
+                glm::vec3 scale,
+                Rotation rotation,
+                glm::vec3 translation
+        ){
 
-        glm::mat4 MVP = projection * view * model;
+            gl::UseProgram(shaderProgram.id);
+            GLint MVP_ID = gl::GetUniformLocation(shaderProgram.id, "MVP");
+            Assert(MVP_ID >= 0);
 
-        gl::UniformMatrix4fv(MVP_ID, 1, gl::FALSE_, (const GLfloat *) glm::value_ptr(MVP));
+            glm::mat4 projection = glm::ortho(0.f, (float) screenResolution.x, (float) screenResolution.y, 0.f);
+            glm::mat4 view;
+            glm::mat4 model;
+
+            auto MakeModel = [scale, rotation, translation]() {
+                return glm::scale(
+                        glm::translate(glm::mat4{}, translation) * // translation
+                        glm::toMat4(glm::rotate(glm::quat{}, rotation.angle, rotation.rotAxis)), // rotation
+                        scale); // scale
+            };
+
+            model = MakeModel();
+
+            glm::mat4 MVP = projection * view * model;
+
+            gl::UniformMatrix4fv(MVP_ID, 1, gl::FALSE_, (const GLfloat *) glm::value_ptr(MVP));
+
+            gl::BindVertexArray(p.VAO);
+            gl::DrawArrays(gl::TRIANGLES, 0, p.vertices);
+        };
 
         gl::Clear(gl::COLOR_BUFFER_BIT);
-        gl::BindVertexArray(p1.VAO);
-        gl::DrawArrays(gl::TRIANGLES, 0, 3);
+
+        DrawPolygon(p1, {200.f, 200.f, 0.f}, Rotation{Pi}, {200.f, 300.f, 0.f});
+        DrawPolygon(p1, {200.f, 200.f, 0.f}, Rotation{Pi}, {400.f, 300.f, 0.f});
+        DrawPolygon(p1, {200.f, 200.f, 0.f}, Rotation{Pi}, {300.f, 100.f, 0.f});
+
         gl::BindVertexArray(0);
 
         glfwSwapBuffers(window);

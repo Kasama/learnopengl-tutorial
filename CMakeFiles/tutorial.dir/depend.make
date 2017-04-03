@@ -3,6 +3,7 @@
 
 CMakeFiles/tutorial.dir/src/main.cpp.o: src/main.cpp
 CMakeFiles/tutorial.dir/src/main.cpp.o: include/defer.hpp
+CMakeFiles/tutorial.dir/src/main.cpp.o: include/polygon.hpp
 CMakeFiles/tutorial.dir/src/main.cpp.o: include/shader.hpp
 CMakeFiles/tutorial.dir/src/main.cpp.o: include/utils.hpp
 CMakeFiles/tutorial.dir/src/main.cpp.o: third_party/gl/include/gl_33.hpp
