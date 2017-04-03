@@ -1,17 +1,17 @@
+#pragma once
 #ifndef TUTORIAL_FILE_HPP
 #define TUTORIAL_FILE_HPP
-#pragma once
 
 #include <utils.hpp>
 
 #include <fstream>
 #include <sstream>
 
-string ReadFile(string FileName) {
+std::string ReadFile(std::string FileName) {
 	std::ifstream File{FileName};
 	Assert(File.is_open());
 
-	string Result;
+	std::string Result;
 
 #ifdef MSVC
 	struct stat Stat;

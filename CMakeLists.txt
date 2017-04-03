@@ -31,12 +31,14 @@ file(GLOB GLM_SRCS	third_party/glm/glm/*.hpp
 
 # Inlclude local libs
 file(GLOB INCS
+        include/shader.hpp
         include/file.hpp
         include/defer.hpp
         include/utils.hpp)
 
 # Include source files
 file(GLOB SRCS
+        src/shader.cpp
         src/main.cpp)
 
 # Include custom shaders

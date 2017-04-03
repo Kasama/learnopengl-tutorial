@@ -2,8 +2,7 @@
 #include <iostream>
 #include <gl_33.hpp>
 #include <GLFW/glfw3.h>
-#include <file.hpp>
-#include <array>
+#include <shader.hpp>
 
 int main() {
     LogError("Started\n");
@@ -135,44 +134,14 @@ int main() {
 
     LogError("Got to shader loading\n");
 
-    GLuint ShaderProgram;
-    { // Shaders
-        string VertexShaderCode = ReadFile("shaders/basic.vert");
-        string FragmentShaderCode = ReadFile("shaders/basic.frag");
-
-        ShaderProgram = gl::CreateProgram();
-        auto MakeShader = [](auto Program, auto Type, const GLchar* const Text, const GLint Size){
-            auto Shader = gl::CreateShader(Type);
-            gl::ShaderSource(Shader, 1, &Text, &Size);
-            gl::CompileShader(Shader);
-
-            GLint success;
-            gl::GetShaderiv(Shader, gl::COMPILE_STATUS, &success);
-            char log[512];
-            if(!success && log != nullptr){
-                gl::GetShaderInfoLog(Shader, (GLsizei) sizeof(log) -1, nullptr, log);
-                LogError("Shader compilation failed:\n%s", log);
+    std::vector<std::pair<ShaderProgram::Stage, std::string>> vec{
+            {
+                    {ShaderProgram::Stage::Vertex, "basic"},
+                    {ShaderProgram::Stage::Fragment, "basic"}
             }
-
-            gl::AttachShader(Program, Shader);
-            return Shader;
-        };
-
-        MakeShader(ShaderProgram, gl::VERTEX_SHADER, VertexShaderCode.c_str(), (const GLint) VertexShaderCode.length());
-        MakeShader(ShaderProgram, gl::FRAGMENT_SHADER, FragmentShaderCode.c_str(), (const GLint) FragmentShaderCode.length());
-
-        gl::LinkProgram(ShaderProgram);
-
-        GLint Success;
-        gl::GetProgramiv(ShaderProgram, gl::LINK_STATUS, &Success);
-        char log[512];
-        if (!Success && log != nullptr) {
-            gl::GetProgramInfoLog(ShaderProgram, (GLsizei) (sizeof(log) - 1), nullptr, log);
-            LogError("%s", log);
-        }
-
-        gl::ValidateProgram(ShaderProgram);
-    }
+    };
+    ShaderProgram shaderProgram{vec};
+    shaderProgram.reloadShaders();
 
     LogError("got to gameloop\n");
 
@@ -185,8 +154,12 @@ int main() {
     while(!glfwWindowShouldClose(window)){
         glfwPollEvents();
 
-        gl::UseProgram(ShaderProgram);
-        GLint MVP_ID = gl::GetUniformLocation(ShaderProgram, "MVP");
+        if(glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS){
+            shaderProgram.reloadShaders();
+        }
+
+        gl::UseProgram(shaderProgram.id);
+        GLint MVP_ID = gl::GetUniformLocation(shaderProgram.id, "MVP");
         Assert(MVP_ID >= 0);
 
         glm::mat4 projection = glm::ortho(0.f, (float) screenResolution.x, (float) screenResolution.y, 0.f);
@@ -203,6 +176,7 @@ int main() {
         glm::vec3 scale = {400.f, 400.f, 0.f};
         Rotation rotation = Rotation{Pi/4};
         glm::vec3 translate;
+
         if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_1) == GLFW_PRESS){
             double x, y;
             glfwGetCursorPos(window, &x, &y);

@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/tutorial.dir/src/shader.cpp.o"
   "CMakeFiles/tutorial.dir/src/main.cpp.o"
   "CMakeFiles/tutorial.dir/third_party/gl/src/gl_33.cpp.o"
   "tutorial.pdb"

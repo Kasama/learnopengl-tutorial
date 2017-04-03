@@ -8,48 +8,48 @@
 		<Option virtualFolders="CMake Files\;CMake Files\third_party\;CMake Files\third_party\glfw\;CMake Files\third_party\glfw\CMake\;CMake Files\third_party\glfw\CMake\modules\;CMake Files\third_party\glfw\src\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial"/>
+				<Option working_dir="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="CopyStuff">
-				<Option working_dir="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 CopyStuff"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial"/>
+				<Option working_dir="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CopyStuff">
+				<Option working_dir="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 CopyStuff"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="tutorial">
-				<Option output="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/tutorial" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial"/>
+				<Option output="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/tutorial" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -58,24 +58,24 @@
 					<Add directory="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/gl/include"/>
 					<Add directory="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/include"/>
 					<Add directory="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glm"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include-fixed"/>
 					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 tutorial"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 tutorial"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="tutorial/fast">
-				<Option output="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/tutorial" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial"/>
+				<Option output="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/tutorial" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -84,24 +84,24 @@
 					<Add directory="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/gl/include"/>
 					<Add directory="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/include"/>
 					<Add directory="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glm"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include-fixed"/>
 					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 tutorial/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 tutorial/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="glfw">
-				<Option output="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/libglfw3.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src"/>
+				<Option output="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/libglfw3.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
@@ -109,25 +109,24 @@
 					<Add option="-D_GLFW_USE_CONFIG_H"/>
 					<Add directory="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/include"/>
 					<Add directory="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src"/>
-					<Add directory="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include-fixed"/>
 					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 glfw"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 glfw"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="glfw/fast">
-				<Option output="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/libglfw3.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src"/>
+				<Option output="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/libglfw3.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
@@ -135,30 +134,29 @@
 					<Add option="-D_GLFW_USE_CONFIG_H"/>
 					<Add directory="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/include"/>
 					<Add directory="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src"/>
-					<Add directory="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include-fixed"/>
 					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 glfw/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 glfw/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/roberto/MEGA/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/glfw_config.h">
-			<Option target="glfw"/>
-		</Unit>
 		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/include/defer.hpp">
 			<Option target="tutorial"/>
 		</Unit>
 		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/include/file.hpp">
+			<Option target="tutorial"/>
+		</Unit>
+		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/include/shader.hpp">
 			<Option target="tutorial"/>
 		</Unit>
 		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/include/utils.hpp">
@@ -171,6 +169,9 @@
 			<Option target="tutorial"/>
 		</Unit>
 		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/src/main.cpp">
+			<Option target="tutorial"/>
+		</Unit>
+		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/src/shader.cpp">
 			<Option target="tutorial"/>
 		</Unit>
 		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/gl/include/gl_33.hpp">
@@ -192,6 +193,9 @@
 			<Option target="glfw"/>
 		</Unit>
 		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/egl_context.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/glfw_config.h">
 			<Option target="glfw"/>
 		</Unit>
 		<Unit filename="/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/glx_context.c">

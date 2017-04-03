@@ -9,8 +9,6 @@
 #define MSVC
 #endif
 
-using namespace std;
-
 #ifdef MSVC
 #include <Windows.h>
 #define RaiseBreakpoint() do {if(IsDebuggerPresent()) { DebugBreak(); }} while(0)
