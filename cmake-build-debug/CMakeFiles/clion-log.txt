@@ -1,6 +1,0 @@
-/opt/clion/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial
--- Could NOT find Vulkan (missing:  VULKAN_LIBRARY VULKAN_INCLUDE_DIR) 
--- Using X11 for window creation
--- Configuring done
--- Generating done
--- Build files have been written to: /home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial

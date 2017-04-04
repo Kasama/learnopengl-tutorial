@@ -1,9 +1,0 @@
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/cmake-build-debug/CMakeFiles/CopyStuff.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/cmake-build-debug/CMakeFiles/tutorial.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/cmake-build-debug/third_party/glfw/CMakeFiles/edit_cache.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/cmake-build-debug/third_party/glfw/CMakeFiles/rebuild_cache.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/cmake-build-debug/third_party/glfw/src/CMakeFiles/edit_cache.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/cmake-build-debug/third_party/glfw/src/CMakeFiles/rebuild_cache.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/cmake-build-debug/third_party/glfw/src/CMakeFiles/glfw.dir

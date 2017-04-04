@@ -1,9 +1,0 @@
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/CMakeFiles/edit_cache.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/CMakeFiles/rebuild_cache.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/CMakeFiles/CopyStuff.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/CMakeFiles/tutorial.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/CMakeFiles/edit_cache.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/CMakeFiles/rebuild_cache.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/CMakeFiles/edit_cache.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/CMakeFiles/rebuild_cache.dir
-/home/roberto/documents/USP/Programação/OpenGL/learnopengl/tutorial/third_party/glfw/src/CMakeFiles/glfw.dir
