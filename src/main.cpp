@@ -67,15 +67,6 @@ int main() {
             }
     };
 
-    Polygon p2{
-            {
-                    {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}},
-                    {{-0.5f, +0.5f, +0.0f}, {+0.0f, +1.0f, +0.0f}},
-                    {{+0.5f, +0.5f, +0.0f}, {+1.0f, +1.0f, +0.0f}},
-                    {{+0.5f, -0.5f, +0.0f}, {+1.0f, +0.0f, +0.0f}}
-            }
-    };
-
     LogError("Got to shader loading\n");
 
     std::vector<std::pair<ShaderProgram::Stage, std::string>> vec{
@@ -89,14 +80,40 @@ int main() {
 
     LogError("got to gameloop\n");
 
-    struct Rotation {
-        float angle;
-        glm::vec3 rotAxis = {0.f, 0.f, 1.f};
+    auto DrawPolygon = [shaderProgram, screenResolution](Polygon &p){
+
+        gl::UseProgram(shaderProgram.id);
+        GLint MVP_ID = gl::GetUniformLocation(shaderProgram.id, "MVP");
+        Assert(MVP_ID >= 0);
+
+        glm::mat4 projection = glm::ortho(0.f, (float) screenResolution.x, (float) screenResolution.y, 0.f);
+        glm::mat4 view;
+        glm::mat4 model;
+
+        auto MakeModel = [&p]() {
+            return glm::scale(
+                    glm::translate(glm::mat4{}, p.Position) * // translation
+                    glm::toMat4(glm::rotate(glm::quat{}, p.Rotation.angle, p.Rotation.rotAxis)), // rotation
+                    p.Scale); // scale
+        };
+
+        model = MakeModel();
+
+        glm::mat4 MVP = projection * view * model;
+
+        gl::UniformMatrix4fv(MVP_ID, 1, gl::FALSE_, (const GLfloat *) glm::value_ptr(MVP));
+
+        gl::BindVertexArray(p.VAO);
+        gl::DrawArrays(gl::TRIANGLES, 0, p.vertices);
     };
 
+    float lastTime = (float) glfwGetTime();
     // Gameloop
     while(!glfwWindowShouldClose(window)){
         glfwPollEvents();
+
+        float currentDelta = (float) (glfwGetTime() - lastTime);
+        lastTime = (float) glfwGetTime();
 
         if(glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS){
             shaderProgram.reloadShaders();
@@ -104,44 +121,18 @@ int main() {
         if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS){
             glfwSetWindowShouldClose(window, 1);
         }
+        if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_1) == GLFW_PRESS){
+            double x, y;
+            glfwGetCursorPos(window, &x, &y);
+            p1.setDirectionTo({x, y, 0.f});
+        }
 
-        auto DrawPolygon = [shaderProgram, screenResolution](
-                Polygon &p,
-                glm::vec3 scale,
-                Rotation rotation,
-                glm::vec3 translation
-        ){
-
-            gl::UseProgram(shaderProgram.id);
-            GLint MVP_ID = gl::GetUniformLocation(shaderProgram.id, "MVP");
-            Assert(MVP_ID >= 0);
-
-            glm::mat4 projection = glm::ortho(0.f, (float) screenResolution.x, (float) screenResolution.y, 0.f);
-            glm::mat4 view;
-            glm::mat4 model;
-
-            auto MakeModel = [scale, rotation, translation]() {
-                return glm::scale(
-                        glm::translate(glm::mat4{}, translation) * // translation
-                        glm::toMat4(glm::rotate(glm::quat{}, rotation.angle, rotation.rotAxis)), // rotation
-                        scale); // scale
-            };
-
-            model = MakeModel();
-
-            glm::mat4 MVP = projection * view * model;
-
-            gl::UniformMatrix4fv(MVP_ID, 1, gl::FALSE_, (const GLfloat *) glm::value_ptr(MVP));
-
-            gl::BindVertexArray(p.VAO);
-            gl::DrawArrays(gl::TRIANGLES, 0, p.vertices);
-        };
+//        p1.Position = glm::translate(glm::mat4{}, (p1.Position + p1.Direction) * currentDelta * p1.Speed) * glm::vec4{p1.Position, 1.f};
+        p1.move(currentDelta);
 
         gl::Clear(gl::COLOR_BUFFER_BIT);
 
-        DrawPolygon(p1, {200.f, 200.f, 0.f}, Rotation{Pi}, {200.f, 300.f, 0.f});
-        DrawPolygon(p1, {200.f, 200.f, 0.f}, Rotation{Pi}, {400.f, 300.f, 0.f});
-        DrawPolygon(p1, {200.f, 200.f, 0.f}, Rotation{Pi}, {300.f, 100.f, 0.f});
+        DrawPolygon(p1);
 
         gl::BindVertexArray(0);
 
