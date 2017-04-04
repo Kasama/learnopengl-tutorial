@@ -64,8 +64,28 @@ int main() {
                     {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}},
                     {{+0.0f, +0.5f, +0.0f}, {+0.5f, +1.0f, +0.0f}},
                     {{+0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}}
-            }
+            }, 100.f
     };
+
+    Polygon p2{
+            {
+                    {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}},
+                    {{+0.0f, +0.5f, +0.0f}, {+0.5f, +1.0f, +0.0f}},
+                    {{+0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}}
+            }, 500.f
+    };
+    p2.Position = {100.f, 100.f, 0.f};
+    p2.Rotation = {Pi/2};
+
+    Polygon p3{
+            {
+                    {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}},
+                    {{+0.0f, +0.5f, +0.0f}, {+0.5f, +1.0f, +0.0f}},
+                    {{+0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}}
+            }, 300.f
+    };
+    p3.Position = {400.f, 200.f, 0.f};
+    p3.Rotation = {Pi/7};
 
     LogError("Got to shader loading\n");
 
@@ -125,14 +145,19 @@ int main() {
             double x, y;
             glfwGetCursorPos(window, &x, &y);
             p1.setDirectionTo({x, y, 0.f});
+            p2.setDirectionTo({x, y, 0.f});
+            p3.setDirectionTo({x, y, 0.f});
         }
 
-//        p1.Position = glm::translate(glm::mat4{}, (p1.Position + p1.Direction) * currentDelta * p1.Speed) * glm::vec4{p1.Position, 1.f};
         p1.move(currentDelta);
+        p2.move(currentDelta);
+        p3.move(currentDelta);
 
         gl::Clear(gl::COLOR_BUFFER_BIT);
 
         DrawPolygon(p1);
+        DrawPolygon(p2);
+        DrawPolygon(p3);
 
         gl::BindVertexArray(0);
 

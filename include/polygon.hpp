@@ -5,10 +5,12 @@
 struct Vertex {
     glm::vec3 PositionCoords;
     glm::vec3 TextureCoords;
+    glm::vec4 Color;
 
     enum class attribute_location : GLuint {
         Position = 0,
         Texture,
+        Color,
         Size
     };
 };
@@ -25,7 +27,8 @@ struct Polygon {
     glm::vec3 Position = glm::vec3{200.f, 200.f, 0.f};
     tRotation Rotation{0};
     glm::vec3 Direction = glm::vec3{0.f};
-    float Speed = 1.f;
+    glm::vec4 Color = {1.f, 1.f, 0.f, 1.f};
+    float Speed;
 
     Polygon(std::vector<Vertex> vertexes, float speed, glm::vec3 direction){
         this->Direction = direction;
@@ -71,6 +74,17 @@ struct Polygon {
                     (void*) offsetof(Vertex, TextureCoords)
             );
 
+            auto ColorLocation = (GLuint) Vertex::attribute_location ::Color;
+            gl::EnableVertexAttribArray(ColorLocation);
+            gl::VertexAttribPointer(
+                    ColorLocation,
+                    (GLint) Vertex::attribute_location::Size,
+                    gl::FLOAT,
+                    gl::FALSE_,
+                    sizeof(Vertex),
+                    (void *) offsetof(Vertex, Color)
+            );
+
             LogError("Unbinding VAO");
             gl::BindVertexArray(0);
         }
@@ -86,9 +100,7 @@ struct Polygon {
         this->Direction = glm::normalize(dir - this->Position);
     }
     void move(float factor){
-        LogError("Direction is: {%f, %f}", Direction.x, Direction.y);
         this->Position += (this->Direction * factor * this->Speed);
-        LogError("new pos: {%f, %f}\n", Position.x, Position.y);
     }
 
     ~Polygon(){
