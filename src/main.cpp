@@ -49,6 +49,8 @@ int main() {
 
     gl::Enable(gl::DEBUG_OUTPUT_SYNCHRONOUS);
     gl::Enable(gl::MULTISAMPLE);
+    gl::Enable(gl::BLEND);
+    gl::BlendFunc(gl::SRC_ALPHA, gl::ONE_MINUS_SRC_ALPHA);
 
     glfwGetFramebufferSize(window, &screenResolution.x, &screenResolution.y);
     gl::Viewport(0, 0, screenResolution.x, screenResolution.y);
@@ -61,17 +63,18 @@ int main() {
 
     Polygon p1{
             {
-                    {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}},
-                    {{+0.0f, +0.5f, +0.0f}, {+0.5f, +1.0f, +0.0f}},
-                    {{+0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}}
+                    {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f}, {1.f, 1.f, 1.f, 1.f}},
+                    {{+0.0f, +0.5f, +0.0f}, {+0.5f, +1.0f}, {0.2f, 0.8f, 0.9f, 1.f}},
+                    {{+0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f}, {0.5f, 0.4f, 0.2f, 1.f}}
             }, 100.f
     };
 
     Polygon p2{
             {
-                    {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}},
-                    {{+0.0f, +0.5f, +0.0f}, {+0.5f, +1.0f, +0.0f}},
-                    {{+0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}}
+                    {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f}, {0.f, 0.f, 0.f, .5f}},
+                    {{-0.5f, +0.5f, +0.0f}, {+0.0f, +1.0f}, {1.f, 1.f, 1.f, 1.f}},
+                    {{+0.5f, +0.5f, +0.0f}, {+1.0f, +1.0f}, {1.f, 1.f, 1.f, 1.f}},
+                    {{+0.5f, -0.5f, +0.0f}, {+1.0f, +0.0f}, {1.f, 1.f, 1.f, 1.f}}
             }, 500.f
     };
     p2.Position = {100.f, 100.f, 0.f};
@@ -79,9 +82,9 @@ int main() {
 
     Polygon p3{
             {
-                    {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}},
-                    {{+0.0f, +0.5f, +0.0f}, {+0.5f, +1.0f, +0.0f}},
-                    {{+0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f, +0.0f}}
+                    {{-0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f}, {1.f, 1.f, 1.f, 1.f}},
+                    {{+0.0f, +0.5f, +0.0f}, {+0.5f, +1.0f}, {1.f, 1.f, 1.f, 1.f}},
+                    {{+0.5f, -0.5f, +0.0f}, {+0.0f, +0.0f}, {1.f, 1.f, 1.f, 1.f}}
             }, 300.f
     };
     p3.Position = {400.f, 200.f, 0.f};
@@ -124,7 +127,7 @@ int main() {
         gl::UniformMatrix4fv(MVP_ID, 1, gl::FALSE_, (const GLfloat *) glm::value_ptr(MVP));
 
         gl::BindVertexArray(p.VAO);
-        gl::DrawArrays(gl::TRIANGLES, 0, p.vertices);
+        gl::DrawArrays(gl::TRIANGLE_FAN, 0, p.vertices);
     };
 
     float lastTime = (float) glfwGetTime();

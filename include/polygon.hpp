@@ -4,7 +4,7 @@
 
 struct Vertex {
     glm::vec3 PositionCoords;
-    glm::vec3 TextureCoords;
+    glm::vec2 TextureCoords;
     glm::vec4 Color;
 
     enum class attribute_location : GLuint {
@@ -30,7 +30,7 @@ struct Polygon {
     glm::vec4 Color = {1.f, 1.f, 0.f, 1.f};
     float Speed;
 
-    Polygon(std::vector<Vertex> vertexes, float speed, glm::vec3 direction){
+    inline Polygon(std::vector<Vertex> vertexes, float speed, glm::vec3 direction){
         this->Direction = direction;
         this->Speed = speed;
 
@@ -55,7 +55,7 @@ struct Polygon {
             gl::EnableVertexAttribArray(PositionLocation);
             gl::VertexAttribPointer(
                     PositionLocation,
-                    (GLint) Vertex::attribute_location::Size,
+                    (GLint) 3,
                     gl::FLOAT,
                     gl::FALSE_,
                     sizeof(Vertex),
@@ -67,18 +67,18 @@ struct Polygon {
             gl::EnableVertexAttribArray(TextureLocation);
             gl::VertexAttribPointer(
                     TextureLocation,
-                    (GLint) Vertex::attribute_location::Size,
+                    (GLint) 2,
                     gl::FLOAT,
                     gl::FALSE_,
                     sizeof(Vertex),
                     (void*) offsetof(Vertex, TextureCoords)
             );
 
-            auto ColorLocation = (GLuint) Vertex::attribute_location ::Color;
+            auto ColorLocation = (GLuint) Vertex::attribute_location::Color;
             gl::EnableVertexAttribArray(ColorLocation);
             gl::VertexAttribPointer(
                     ColorLocation,
-                    (GLint) Vertex::attribute_location::Size,
+                    (GLint) 4,
                     gl::FLOAT,
                     gl::FALSE_,
                     sizeof(Vertex),
@@ -90,20 +90,20 @@ struct Polygon {
         }
     }
 
-    Polygon(std::vector<Vertex> vertexes, float speed)
+    inline Polygon(std::vector<Vertex> vertexes, float speed)
             : Polygon{vertexes, speed, glm::vec3{0.f}}{}
 
-    Polygon(std::vector<Vertex> vertexes)
+    inline Polygon(std::vector<Vertex> vertexes)
             : Polygon{vertexes, 100.f}{}
 
-    void setDirectionTo(glm::vec3 dir){
-        this->Direction = glm::normalize(dir - this->Position);
+    inline void setDirectionTo(glm::vec3 position){
+        this->Direction = glm::normalize(position - this->Position);
     }
-    void move(float factor){
+    inline void move(float factor){
         this->Position += (this->Direction * factor * this->Speed);
     }
 
-    ~Polygon(){
+    inline ~Polygon(){
         gl::DeleteVertexArrays(1, &this->VAO);
     }
 };
